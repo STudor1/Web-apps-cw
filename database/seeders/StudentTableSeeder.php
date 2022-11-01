@@ -19,5 +19,7 @@ class StudentTableSeeder extends Seeder
         $s->name = "Josh";
         $s->email = "josh@email.com";
         $s->save();
+
+        Student::factory()->count(10)->create();
     }
 }
