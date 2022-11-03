@@ -21,5 +21,9 @@ class LecturerTableSeeder extends Seeder
         $l->save();
 
         Lecturer::factory()->count(4)->create();
+        
+        //Lecturer::factory(4)
+        //    ->has(Post::factory()->count(2))
+        //    ->create();
     }
 }

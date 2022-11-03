@@ -17,6 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->timestamps();
+
+            //fk to lecturer
+            //a post belongs to a lecturer
+            $table->bigInteger('lecturer_id')->references('id')->on('lecturers')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
