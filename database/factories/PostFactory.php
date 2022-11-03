@@ -18,7 +18,6 @@ class PostFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            //'lecturer_id' => 1,
         ];
     }
 }

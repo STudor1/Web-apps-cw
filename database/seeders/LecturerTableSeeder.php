@@ -21,10 +21,8 @@ class LecturerTableSeeder extends Seeder
         $l->name = "Sheldon";
         $l->email = "sheldon@email.com";
         $l->save();
-
-        //Lecturer::factory()->count(4)->create();
         
-        //I want to create 4 lecturers with 2 posts each
+        //Create 4 lecturers with 2 posts each
         Lecturer::factory(4)
             ->has(Post::factory()->count(2))
             ->create();
