@@ -20,6 +20,6 @@ class PostTableSeeder extends Seeder
         $p->lecturer_id = 1;
         $p->save();
 
-        Post::factory()->count(9)->create();
+        //Post::factory()->count(9)->create();
     }
 }

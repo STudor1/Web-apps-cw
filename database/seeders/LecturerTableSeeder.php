@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Lecturer;
+use App\Models\Post;
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,10 +22,11 @@ class LecturerTableSeeder extends Seeder
         $l->email = "sheldon@email.com";
         $l->save();
 
-        Lecturer::factory()->count(4)->create();
+        //Lecturer::factory()->count(4)->create();
         
-        //Lecturer::factory(4)
-        //    ->has(Post::factory()->count(2))
-        //    ->create();
+        //I want to create 4 lecturers with 2 posts each
+        Lecturer::factory(4)
+            ->has(Post::factory()->count(2))
+            ->create();
     }
 }
