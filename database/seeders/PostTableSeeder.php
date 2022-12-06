@@ -15,6 +15,10 @@ class PostTableSeeder extends Seeder
      */
     public function run()
     {
-        
+        $p = new Post;
+        $p->name = "hello";
+        $p->user_id = 100;
+        $p->save();
+
     }
 }

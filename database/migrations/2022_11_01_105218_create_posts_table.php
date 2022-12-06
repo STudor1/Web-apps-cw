@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
 
-
             $table->bigInteger('user_id')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
 
