@@ -9,7 +9,5 @@ class Lecturer extends Model
 {
     use HasFactory;
 
-    public function posts(){
-        return $this->hasMany(Post::class);
-    }
+   
 }

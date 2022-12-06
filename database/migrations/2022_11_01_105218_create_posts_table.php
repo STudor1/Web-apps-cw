@@ -16,12 +16,13 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+
+
+            $table->bigInteger('user_id')->references('id')->on('users')
+                ->onDelete('cascade')->onUpdate('cascade');
+
             $table->timestamps();
 
-            //fk to lecturer
-            //a post belongs to a lecturer
-            $table->bigInteger('lecturer_id')->references('id')->on('lecturers')
-                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
