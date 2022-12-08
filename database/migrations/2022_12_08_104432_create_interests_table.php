@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('interests', function (Blueprint $table) {
             $table->id();
+            $table->char('interest', 50);            
             $table->timestamps();
         });
     }
