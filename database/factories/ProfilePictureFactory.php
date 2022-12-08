@@ -19,9 +19,9 @@ class ProfilePictureFactory extends Factory
         return [
             //This sets the pfp to a random user in our database (we only have 4 so far)
             //we'll have to check for max in future
-            //i got the id of user be 4 and 4 for 2 different profile pics
-            //why is it possible if one to one set up correctly?
             'user_id' => fake()->unique()->numberBetween(2, 4),
+            'picture' => "hey",
+            #'picture' => fake()->image($dir = '/storage/images', $width = 50, $height = 50, null, false),
 
             //I will need to use faker to get pictures then to seed some random profiles
         ];

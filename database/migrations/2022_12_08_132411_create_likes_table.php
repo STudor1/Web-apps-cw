@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('profile_pictures', function (Blueprint $table) {
+        Schema::create('likes', function (Blueprint $table) {
             $table->id();
-            $table->string('picture', 400);
             $table->timestamps();
-
-            $table->bigInteger('user_id')->references('id')->on('users')
-                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profile_pictures');
+        Schema::dropIfExists('likes');
     }
 };

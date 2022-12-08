@@ -20,6 +20,7 @@ class ProfilePictureTableSeeder extends Seeder
         //
         $p = new ProfilePicture;
         $p-> user_id = 1;
+        $p-> picture = "hello";
         $p->save();
 
         #ProfilePicture::factory()->count(2)->create();
