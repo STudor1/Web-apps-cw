@@ -22,6 +22,9 @@ Route::get('/', function () {
 Route::get('/home', [UserController::class, 'index'])
     ->name('users.index');
 
+Route::get('/home/{id}', [UserController::class, 'show'])
+    ->name('users.show');
+
 
 
 Route::get('/dashboard', function () {
