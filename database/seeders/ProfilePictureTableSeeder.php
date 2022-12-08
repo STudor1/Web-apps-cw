@@ -23,7 +23,7 @@ class ProfilePictureTableSeeder extends Seeder
         $p->save();
 
         #ProfilePicture::factory()->count(2)->create();
-        $user = User::factory()->create();
+        ##$user = User::factory()->create();
  
         $pic = ProfilePicture::factory()
             ->count(2)
