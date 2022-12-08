@@ -21,7 +21,7 @@ class ProfilePictureFactory extends Factory
             //we'll have to check for max in future
             'user_id' => fake()->unique()->numberBetween(2, 4),
             'picture' => "hey",
-            #'picture' => fake()->image($dir = '/storage/images', $width = 50, $height = 50, null, false),
+            #'picture' => fake()->image($dir = './storage/images', $width = 50, $height = 50, null, false),
 
             //I will need to use faker to get pictures then to seed some random profiles
         ];
