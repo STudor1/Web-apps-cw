@@ -15,8 +15,12 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title', 150);
+            $table->string('content', 2000);
 
+
+
+            #FK a post belongs to a user
             $table->bigInteger('user_id')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
 
