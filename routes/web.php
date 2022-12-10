@@ -25,7 +25,7 @@ Route::get('/home', [UserController::class, 'index'])
 Route::get('/home/create', [UserController::class, 'create'])
     ->name('users.create');
 
-Route::post('/animals', [UserController::class, 'store'])
+Route::post('/home', [UserController::class, 'store'])
     ->name('users.store');
 
 Route::get('/home/{id}', [UserController::class, 'show'])
