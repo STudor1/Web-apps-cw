@@ -50,7 +50,8 @@ class UserController extends Controller
     public function show($id)
     {
         //
-        return "Not yet";
+        $post = Post::findOrFail($id);
+        return view('users.show', ['post' => $post]);
     }
 
     /**
