@@ -41,11 +41,13 @@ class UserController extends Controller
     {
         //
         $validatedData = $request->validate([
-            'name' => 'required|max:800',
+            'title' => 'required|max:150',
+            'content' => 'required|max:2000',
         ]);
 
         $p = new Post;
-        $p->name = $validatedData['name'];
+        $p->title = $validatedData['title'];
+        $p->content = $validatedData['content'];
         $p->user_id = 1000; #this is for testing purposes will have to get the id of the user when making a post later
         $p->save();
 

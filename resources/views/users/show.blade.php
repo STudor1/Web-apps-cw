@@ -1,10 +1,11 @@
 @extends('layouts.basic')
 
-@section('title', $post->name)
+@section('title', $post->title)
 
 @section('content')
     <ul>
-        <li> Content: {{$post->name}} </li>
+        <li> Title: {{$post->title}} </li>
+        <li> Content: {{$post->content}} </li>
     </ul>
 
     <form method="POST"
