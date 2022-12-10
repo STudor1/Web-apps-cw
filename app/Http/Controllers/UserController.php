@@ -98,5 +98,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return redirect()->route('users.index')->with('message', 'Post was deleted.');
     }
 }

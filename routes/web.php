@@ -31,7 +31,8 @@ Route::post('/home', [UserController::class, 'store'])
 Route::get('/home/{id}', [UserController::class, 'show'])
     ->name('users.show');
 
-
+Route::delete('/home/{id}', [UserController::class, 'destroy'])
+    ->name('users.destroy');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
