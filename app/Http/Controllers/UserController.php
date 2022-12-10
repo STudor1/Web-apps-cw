@@ -40,7 +40,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request['name']);
+        $validatedData = $request->validate([
+            'name' => 'required|max:800',
+        ]);
+
+        return "Passed validation";
     }
 
     /**
