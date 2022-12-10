@@ -44,7 +44,13 @@ class UserController extends Controller
             'name' => 'required|max:800',
         ]);
 
-        return "Passed validation";
+        $p = new Post;
+        $p->name = $validatedData['name'];
+        $p->user_id = 1000; #this is for testing purposes will have to get the id of the user when making a post later
+        $p->save();
+
+        session()->flash('message', 'The post was created.');
+        return redirect()->route('users.index');
     }
 
     /**
