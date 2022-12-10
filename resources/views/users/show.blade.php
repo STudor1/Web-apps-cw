@@ -8,7 +8,7 @@
     </ul>
 
     <form method="POST"
-        action="{{ route('users.destroy', ['id' => $post->id]) }}">
+        action="{{ route('users.destroy', [$post->id]) }}">
         @csrf
         @method('DELETE')
         <button type="Submit">Delete</button>

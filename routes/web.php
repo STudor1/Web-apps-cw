@@ -28,10 +28,10 @@ Route::get('/home/create', [UserController::class, 'create'])
 Route::post('/home', [UserController::class, 'store'])
     ->name('users.store');
 
-Route::get('/home/{id}', [UserController::class, 'show'])
+Route::get('/home/{post}', [UserController::class, 'show'])
     ->name('users.show');
 
-Route::delete('/home/{id}', [UserController::class, 'destroy'])
+Route::delete('/home/{post}', [UserController::class, 'destroy'])
     ->name('users.destroy');
 
 Route::get('/dashboard', function () {
