@@ -11,6 +11,8 @@
         @endforeach
     </ul>
 
+    <a href="{{ route('users.create') }}">Create Post </a>
+
     {{$posts->onEachSide(1)->links()}}
 
 @endsection
