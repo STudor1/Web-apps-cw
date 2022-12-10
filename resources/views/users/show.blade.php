@@ -3,6 +3,8 @@
 @section('title', $post->name)
 
 @section('content')
-    {{$post}}
+    <ul>
+        <li> Content: {{$post->name}} </li>
+    </ul>
 
 @endsection
