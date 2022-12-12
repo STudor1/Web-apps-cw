@@ -41,11 +41,13 @@ class UserController extends Controller
     {
         //
         $validatedData = $request->validate([
+            'image' => 'nullable|max:500',
             'title' => 'required|max:150',
             'content' => 'required|max:2000',
         ]);
 
         $p = new Post;
+        $p->image = $validatedData['image']; 
         $p->title = $validatedData['title'];
         $p->content = $validatedData['content'];
         $p->user_id = 1000; #this is for testing purposes will have to get the id of the user when making a post later
@@ -91,6 +93,7 @@ class UserController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        $post->image = $request->input('image');
         $post->title = $request->input('title');
         $post->content = $request->input('content');
         $post->update();

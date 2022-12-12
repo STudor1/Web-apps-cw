@@ -4,6 +4,7 @@
 
 @section('content')
     <ul>
+        <li> Image: {{$post->image}} </li>
         <li> Title: {{$post->title}} </li>
         <li> Content: {{$post->content}} </li>
     </ul>
