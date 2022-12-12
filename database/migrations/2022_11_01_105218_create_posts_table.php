@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title', 150);
             $table->string('content', 2000);
+            $table->string('image', 500)->nullable();
+
 
 
 
