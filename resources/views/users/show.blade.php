@@ -16,5 +16,6 @@
     </form>
 
     <p><a href="{{ route('users.index') }}">Back</a></p>
+    <p><a href="{{ route('users.edit', [$post->id]) }}">Edit</a></p>
 
 @endsection

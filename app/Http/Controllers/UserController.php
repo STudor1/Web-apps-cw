@@ -76,6 +76,9 @@ class UserController extends Controller
     public function edit(Post $post)
     {
         //
+        //$post = Post::find($post);
+        //return "Not yet";
+        return view('users.edit', ['post' => $post]);
     }
 
     /**
@@ -88,6 +91,12 @@ class UserController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        $post->title = $request->input('title');
+        $post->content = $request->input('content');
+        $post->update();
+
+        session()->flash('message', 'The post was updated successfully.');
+        return redirect()->route('users.index');
     }
 
     /**

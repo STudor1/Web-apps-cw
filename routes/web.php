@@ -25,6 +25,12 @@ Route::get('/home', [UserController::class, 'index'])
 Route::get('/home/create', [UserController::class, 'create'])
     ->name('users.create');
 
+Route::get('/home/edit/{post}', [UserController::class, 'edit'])
+    ->name('users.edit');
+
+Route::put('/home/update/{post}', [UserController::class, 'update'])
+    ->name('users.update');
+
 Route::post('/home', [UserController::class, 'store'])
     ->name('users.store');
 
