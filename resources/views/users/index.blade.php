@@ -11,7 +11,7 @@
         @endforeach
     </ul>
 
-    <a href="{{ route('users.create') }}">Create Post </a>
+    <a href="{{ route('users.create') }}" class="btn btn-primary">Create Post </a>
 
     {{$posts->onEachSide(1)->links()}}
 

@@ -12,6 +12,6 @@
             value="{{ $post->content }}"></p>
 
         <input type="submit" value="Submit">
-        <a href="{{ route('users.index') }}">Cancel</a>
+        <a href="{{ route('users.show', [$post->id]) }}" class="btn btn-primary">Cancel</a>
     </form>
 @endsection

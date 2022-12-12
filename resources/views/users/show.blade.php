@@ -15,7 +15,7 @@
         <button type="Submit">Delete</button>
     </form>
 
-    <p><a href="{{ route('users.index') }}">Back</a></p>
-    <p><a href="{{ route('users.edit', [$post->id]) }}">Edit</a></p>
+    <p><a href="{{ route('users.index') }}" class="btn btn-primary">Back</a>
+    <a href="{{ route('users.edit', [$post->id]) }}" class="btn btn-primary">Edit</a></p>
 
 @endsection
