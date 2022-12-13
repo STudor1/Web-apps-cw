@@ -49,14 +49,28 @@ class UserController extends Controller
             //
             $name = $request->file('image')->getClientOriginalName();
             $request->file('image')->storeAs('public/images/', $name);
+            $file = $request->file('image');
+            $file = $request->image;
+            dd($file);
+            $p = new Post;
+            $p->image = $validatedData['image'];
+            $p->image_name = $request->file('image')->getClientOriginalName(); 
+            $p->title = $validatedData['title'];
+            $p->content = $validatedData['content'];
+            $p->user_id = 1000; #this is for testing purposes will have to get the id of the user when making a post later
+            //$p->save();
+        } else {
+            $p = new Post;
+            $p->image = null;
+            $p->image_name = null; 
+            $p->title = $validatedData['title'];
+            $p->content = $validatedData['content'];
+            $p->user_id = 1000; #this is for testing purposes will have to get the id of the user when making a post later
+            $p->save();
         }
 
-        $p = new Post;
-        $p->image = $validatedData['image']; 
-        $p->title = $validatedData['title'];
-        $p->content = $validatedData['content'];
-        $p->user_id = 1000; #this is for testing purposes will have to get the id of the user when making a post later
-        $p->save();
+        //we could need an else if the file not present 
+        
 
         //dd($request->file());
 
