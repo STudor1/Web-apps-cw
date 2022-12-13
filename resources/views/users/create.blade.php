@@ -3,7 +3,7 @@
 @section('title', 'Create Post')
 
 @section('content')
-    <form method="POST" action="{{ route('users.store') }}">
+    <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
         @csrf
         <p>Title: <input type="text" name="title" 
             value="{{ old('title') }}"></p>

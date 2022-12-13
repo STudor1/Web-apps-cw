@@ -39,12 +39,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $validatedData = $request->validate([
             'image' => 'nullable|max:500',
             'title' => 'required|max:150',
             'content' => 'required|max:2000',
         ]);
+
+        if ($request->hasFile('image')) {
+            //
+            $name = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('public/images/', $name);
+        }
 
         $p = new Post;
         $p->image = $validatedData['image']; 
@@ -52,6 +57,11 @@ class UserController extends Controller
         $p->content = $validatedData['content'];
         $p->user_id = 1000; #this is for testing purposes will have to get the id of the user when making a post later
         $p->save();
+
+        //dd($request->file());
+
+        //$name = $request->file('image')->getClientOriginalName();
+        //return $name;
 
         session()->flash('message', 'The post was created.');
         return redirect()->route('users.index');
