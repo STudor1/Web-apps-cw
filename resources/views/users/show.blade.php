@@ -4,7 +4,7 @@
 
 @section('content')
     <ul>
-        {{$post->image_name}} <img src="{{asset('storage/images/'.$post->image_name)}}">
+        <img src="{{asset('storage/'.$post->image_name)}}">
     </ul>
     <ul>
         <li> Title: {{$post->title}} </li>

@@ -45,20 +45,20 @@ class UserController extends Controller
             'content' => 'required|max:2000',
         ]);
 
-        if ($request->hasFile('image')) {
-            //
-            $name = $request->file('image')->getClientOriginalName();
-            $request->file('image')->storeAs('public/images/', $name);
-            $file = $request->file('image');
-            $file = $request->image;
-            dd($file);
+
+
+        $file = $request->hasFile('image');
+        if($file){
+            $newFile = $request->file('image');
+            $file_path = $newFile->store('images');
+            
             $p = new Post;
             $p->image = $validatedData['image'];
-            $p->image_name = $request->file('image')->getClientOriginalName(); 
+            $p->image_name = $file_path; 
             $p->title = $validatedData['title'];
             $p->content = $validatedData['content'];
             $p->user_id = 1000; #this is for testing purposes will have to get the id of the user when making a post later
-            //$p->save();
+            $p->save();
         } else {
             $p = new Post;
             $p->image = null;
@@ -67,10 +67,7 @@ class UserController extends Controller
             $p->content = $validatedData['content'];
             $p->user_id = 1000; #this is for testing purposes will have to get the id of the user when making a post later
             $p->save();
-        }
-
-        //we could need an else if the file not present 
-        
+        }        
 
         //dd($request->file());
 
@@ -117,10 +114,23 @@ class UserController extends Controller
     public function update(Request $request, Post $post)
     {
         //
-        $post->image = $request->input('image');
-        $post->title = $request->input('title');
-        $post->content = $request->input('content');
-        $post->update();
+        $file = $request->hasFile('image');
+        if($file){
+            $newFile = $request->file('image');
+            $file_path = $newFile->store('images');
+            
+            $post->image_name = $file_path; 
+            $post->title = $request->input('title');
+            $post->content = $request->input('content');
+            $post->update();
+        } else {
+            $post->image_name = null;
+            $post->title = $request->input('title');
+            $post->content = $request->input('content');
+            $post->update();
+        }
+
+        
 
         session()->flash('message', 'The post was updated successfully.');
         return redirect()->route('users.index');
