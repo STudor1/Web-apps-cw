@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CommentController;
+
 
 
 /*
@@ -27,6 +29,9 @@ Route::get('/home', [UserController::class, 'index'])
 Route::get('/home/create', [UserController::class, 'create'])
     ->name('users.create');
 
+Route::get('/comment/create/{post}', [CommentController::class, 'create'])
+    ->name('comments.create');
+
 Route::get('/home/edit/{post}', [UserController::class, 'edit'])
     ->name('users.edit');
 
@@ -36,8 +41,14 @@ Route::put('/home/update/{post}', [UserController::class, 'update'])
 Route::post('/home', [UserController::class, 'store'])
     ->name('users.store');
 
+
+
 Route::get('/home/{post}', [UserController::class, 'show'])
     ->name('users.show');
+
+
+Route::post('/home/{post}', [CommentController::class, 'store'])
+    ->name('comments.store');
 
 Route::delete('/home/{post}', [UserController::class, 'destroy'])
     ->name('users.destroy');
