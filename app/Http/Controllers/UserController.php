@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -57,7 +57,7 @@ class UserController extends Controller
             $p->image_name = $file_path; 
             $p->title = $validatedData['title'];
             $p->content = $validatedData['content'];
-            $p->user_id = 1000; #this is for testing purposes will have to get the id of the user when making a post later
+            $p->user_id = Auth::user()->id; #this is for testing purposes will have to get the id of the user when making a post later
             $p->save();
         } else {
             $p = new Post;
@@ -65,7 +65,7 @@ class UserController extends Controller
             $p->image_name = null; 
             $p->title = $validatedData['title'];
             $p->content = $validatedData['content'];
-            $p->user_id = 1000; #this is for testing purposes will have to get the id of the user when making a post later
+            $p->user_id = Auth::user()->id; #this is for testing purposes will have to get the id of the user when making a post later
             $p->save();
         }        
 

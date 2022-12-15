@@ -5,6 +5,8 @@
     <div class="px-4">
         <div class="font-medium text-base text-gray-800">User: {{ Auth::user()->name }}</div>
         <div class="font-medium text-sm text-gray-500">Email: {{ Auth::user()->email }}</div>
+        <!-- HERE FOR TESTING -->
+        <div class="font-medium text-sm text-gray-500">ID: {{ Auth::user()->id }}</div>
     </div>
 
     <div class="mt-3 space-y-1">
