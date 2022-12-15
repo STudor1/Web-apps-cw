@@ -11,7 +11,14 @@
             @endif
         @endforeach
     </ul>
-    <p>Comments:</p>
 
+    <p>Comments:</p>
+    <ul>
+        @foreach ($comments as $comment)
+            @if ($user->id == $comment->author_id)
+                <li>{{ $comment->content }}</li>
+            @endif
+        @endforeach
+    </ul>
 
 @endsection

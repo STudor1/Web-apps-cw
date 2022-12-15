@@ -23,7 +23,7 @@
     <ul>
         @foreach ($comments as $comment)
             @if ($comment->post_id == $post->id)
-                <ul>{{ $comment->author }} - {{ $comment->content }}</ul>
+                <ul><a href="{{ route('profiles.show', [$comment->author_id]) }}"> {{ $comment->author }} </a>  - {{ $comment->content }}</ul>
             @endif
         @endforeach
     </ul>
