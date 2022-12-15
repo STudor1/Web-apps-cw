@@ -20,6 +20,13 @@
     </ul>
 
     <p>Comments</p>
+    <ul>
+        @foreach ($comments as $comment)
+            @if ($comment->post_id == $post->id)
+                <ul>{{ $comment->author }} - {{ $comment->content }}</ul>
+            @endif
+        @endforeach
+    </ul>
     <p><a href="{{ route('comments.create', [$post->id]) }}" class="btn btn-primary">Add Comment</a>
 
 

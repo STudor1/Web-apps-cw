@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Comment;
+
 
 class UserController extends Controller
 {
@@ -87,7 +89,8 @@ class UserController extends Controller
     public function show(Post $post)
     {
         //
-        return view('users.show', ['post' => $post]);
+        $comments = Comment::get(); 
+        return view('users.show', ['post' => $post, 'comments' => $comments]);
     }
 
     /**
