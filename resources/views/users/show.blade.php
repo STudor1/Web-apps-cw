@@ -8,6 +8,13 @@
     </ul>
     <ul>
         <li> Title: {{$post->title}} </li>
+        <li> Author: 
+            @if ($post->user->name)
+                <a href="{{ route('profiles.show', [$post->user->name]) }}"> {{$post->user->name}} </a> 
+            @else 
+                Unknown     
+            @endif
+        </li>
         <li> Content: {{$post->content}} </li>
     </ul>
 

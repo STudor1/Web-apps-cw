@@ -18,7 +18,7 @@ class PostTableSeeder extends Seeder
         $p = new Post;
         $p->title = "hello";
         $p->content = "hey this is a post and it can have a max of 2000 char, fun";
-        $p->user_id = 100;
+        $p->user_id = 2;
         $p->save();
 
     }

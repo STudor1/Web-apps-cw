@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,9 @@ Route::get('/home/{post}', [UserController::class, 'show'])
 
 Route::delete('/home/{post}', [UserController::class, 'destroy'])
     ->name('users.destroy');
+
+Route::get('/profile/{user}', [ProfileController::class, 'show'])
+    ->name('profiles.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
