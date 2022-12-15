@@ -10,7 +10,7 @@
         <li> Title: {{$post->title}} </li>
         <li> Author: 
             @if ($post->user->name)
-                <a href="{{ route('profiles.show', [$post->user->name]) }}"> {{$post->user->name}} </a> 
+                <a href="{{ route('profiles.show', [$post->user->id]) }}"> {{$post->user->name}} </a> 
             @else 
                 Unknown     
             @endif
