@@ -22,6 +22,7 @@ class CommentLivewire extends Component
         $c->post_id = $post->id;
         $c->save();
         
+        session()->flash('message', 'Comment posted.');
     }
 
     public function render()
