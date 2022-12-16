@@ -11,6 +11,7 @@
 
 
     <title>Cool Blog  - @yield('title')</title>
+    @livewireStyles
 </head>
 
 <body>    
@@ -34,5 +35,7 @@
     <div>
         @yield('content')
     </div>
+
+    @livewireScripts
 
 </html>

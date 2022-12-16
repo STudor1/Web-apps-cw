@@ -20,6 +20,11 @@
     </ul>
 
     <p>Comments</p>
+    @livewire('comment-livewire', ['post' => $post])
+
+    
+    
+
     <ul>
         @foreach ($comments as $comment)
             @if ($comment->post_id == $post->id)
