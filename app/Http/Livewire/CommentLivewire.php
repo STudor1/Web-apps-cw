@@ -11,9 +11,9 @@ class CommentLivewire extends Component
 {
     public Post $post;
     public $content;
+    public $comments;
 
-
-    public function post(Post $post)
+    public function post(Post $post, Comment $comments)
     {
         $c = new Comment;
         $c->content = $this->content;

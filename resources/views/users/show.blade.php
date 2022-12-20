@@ -20,10 +20,11 @@
     </ul>
 
     <p>Comments</p>
-    @livewire('comment-livewire', ['post' => $post])
+    @livewire('comment-livewire', ['post' => $post, 'comments' => $comments])
 
     
-    
+    {{-- 
+    @livewire('comment-livewire', ['post' => $post, 'comments' => $comments])
 
     <ul>
         @foreach ($comments as $comment)
@@ -31,8 +32,13 @@
                 <ul><a href="{{ route('profiles.show', [$comment->author_id]) }}"> {{ $comment->author }} </a>  - {{ $comment->content }}</ul>
             @endif
         @endforeach
-    </ul>
+    </ul> 
+
     <p><a href="{{ route('comments.create', [$post->id]) }}" class="btn btn-primary">Add Comment</a>
+    --}}
+    
+    
+    
 
 
     <form method="POST"
