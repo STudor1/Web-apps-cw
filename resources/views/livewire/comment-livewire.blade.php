@@ -1,6 +1,6 @@
 <div>
     <div style="text-align: left">
-        <form wire:submit.prevent="post({{ $post->id }}, {{$comments}})">
+        <form wire:submit.prevent="post({{ $post->id }})">
             <div>
                 @if (session()->has('message'))
                     <div class="alert alert-success">

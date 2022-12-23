@@ -20,7 +20,7 @@
     </ul>
 
     <p>Comments</p>
-    @livewire('comment-livewire', ['post' => $post, 'comments' => $comments])
+    @livewire('comment-livewire', ['post' => $post])
 
     <form method="POST"
         action="{{ route('users.destroy', [$post->id]) }}">
