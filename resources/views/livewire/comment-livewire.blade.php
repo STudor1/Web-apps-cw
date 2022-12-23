@@ -12,7 +12,7 @@
             </div>
 
             @csrf
-            Post Something: <input wire:model="content" type="text">
+            Post Something: <input wire:model.lazy="content" type="text">
             {{-- 
             <ul>
                 @foreach ($comments as $comment)
