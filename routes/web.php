@@ -47,8 +47,8 @@ Route::get('/home/{post}', [UserController::class, 'show'])
     ->name('users.show');
 
 
-Route::post('/home/{post}', [CommentController::class, 'store'])
-    ->name('comments.store');
+#Route::post('/home/{post}', [CommentController::class, 'store'])
+#    ->name('comments.store');
 
 Route::delete('/home/{post}', [UserController::class, 'destroy'])
     ->name('users.destroy');
