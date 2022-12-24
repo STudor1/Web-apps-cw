@@ -90,7 +90,9 @@ class UserController extends Controller
     {
         //
         $comments = Comment::get(); 
-        return view('users.show', ['post' => $post, 'comments' => $comments]);
+        $id_user = Auth::user()->id;
+        $user_role = Auth::user()->role;
+        return view('users.show', ['post' => $post, 'comments' => $comments, 'id_user' => $id_user, 'user_role' => $user_role]);
     }
 
     /**

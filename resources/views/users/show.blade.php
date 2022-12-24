@@ -22,16 +22,17 @@
     <p>Comments</p>
     @livewire('comment-livewire', ['post' => $post])
 
-    <form method="POST"
-        action="{{ route('users.destroy', [$post->id]) }}">
-        @csrf
-        @method('DELETE')
-        <button type="Submit">Delete Post</button>
-    </form>
-
-    
-
     <p><a href="{{ route('users.index') }}" class="btn btn-primary">Back</a>
-    <a href="{{ route('users.edit', [$post->id]) }}" class="btn btn-primary">Edit</a></p>
+
+    @if($post->user_id == $id_user or $user_role == 'admin')
+        <form method="POST"
+            action="{{ route('users.destroy', [$post->id]) }}">
+            @csrf
+            @method('DELETE')
+            <button type="Submit">Delete Post</button>
+        </form>
+
+        <a href="{{ route('users.edit', [$post->id]) }}" class="btn btn-primary">Edit</a></p>
+    @endif
 
 @endsection
