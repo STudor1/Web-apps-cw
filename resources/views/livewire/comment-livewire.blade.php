@@ -16,7 +16,11 @@
                 <ul>
                     @foreach ($comments as $comment)
                         @if ($comment->post_id == $post->id)
-                            <ul><a href="{{ route('profiles.show', [$comment->author_id]) }}"> {{ $comment->author }} </a>  - {{ $comment->content }}</ul>
+                            <ul><a href="{{ route('profiles.show', [$comment->author_id]) }}"> {{ $comment->author }} </a>  - {{ $comment->content }}
+                                @if($comment->author_id == $id_user or $user_role == 'admin')
+                                    Delete Edit 
+                                @endif
+                            </ul>
                         @endif
                     @endforeach
                 </ul> 

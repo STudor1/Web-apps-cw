@@ -12,6 +12,8 @@ class CommentLivewire extends Component
     public Post $post;
     public $content;
     public $comments;
+    public $id_user;
+    public $user_role;
 
     public function post(Post $post)
     {
@@ -30,6 +32,8 @@ class CommentLivewire extends Component
     public function render()
     {
         $this->comments = Comment::get();
+        $this->id_user = Auth::user()->id;
+        $this->user_role = Auth::user()->role;
         return view('livewire.comment-livewire');
     }
 }
