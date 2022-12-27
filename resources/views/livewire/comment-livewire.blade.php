@@ -13,13 +13,16 @@
             Post Something: <input wire:model.lazy="content" type="text">
 
             <button>Post Comment</button>
+            <button wire:click="enable">Enable Edit/Delete</button>
+            <button wire:click="disable">Disable Edit/Delete</button>
+
 
             <div>
                 <ul>
                     @foreach ($comments as $comment)
                         @if ($comment->post_id == $post->id)
                             <ul><a href="{{ route('profiles.show', [$comment->author_id]) }}"> {{ $comment->author }} </a>  - {{ $comment->content }}
-                                @if($comment->author_id == $id_user or $user_role == 'admin')
+                                @if(($comment->author_id == $id_user or $user_role == 'admin') and $bool == true)
                                     <form method="POST"
                                         action="{{ route('comments.destroy', [$post->id, $comment->id]) }}">
                                         @csrf

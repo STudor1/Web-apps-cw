@@ -14,19 +14,31 @@ class CommentLivewire extends Component
     public $comments;
     public $id_user;
     public $user_role;
+    public $bool = false;
 
     public function post(Post $post)
     {
-        $c = new Comment;
-        $c->content = $this->content;
-        $c->author = Auth::user()->name;
-        $c->author_id = Auth::user()->id; 
-        $c->post_id = $post->id;
-        $c->save();
+        if($this->content != null){
+            $c = new Comment;
+            $c->content = $this->content;
+            $c->author = Auth::user()->name;
+            $c->author_id = Auth::user()->id; 
+            $c->post_id = $post->id;
+            $c->save();
+
+            session()->flash('message', 'Comment posted.');
+        }
         
-        session()->flash('message', 'Comment posted.');
         //after we save we clear the textfield
         $this->content = null;
+    }
+
+    public function enable(){
+        $this->bool = true;
+    }
+
+    public function disable(){
+        $this->bool = false;
     }
 
     public function render()
@@ -34,6 +46,7 @@ class CommentLivewire extends Component
         $this->comments = Comment::get();
         $this->id_user = Auth::user()->id;
         $this->user_role = Auth::user()->role;
+        $bool;
         return view('livewire.comment-livewire');
     }
 }
