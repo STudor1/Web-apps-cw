@@ -22,17 +22,22 @@
     <p>Comments</p>
     @livewire('comment-livewire', ['post' => $post])
 
-    <p><a href="{{ route('users.index') }}" class="btn btn-primary">Back</a>
+    <br>
 
     @if($post->user_id == $id_user or $user_role == 'admin')
         <form method="POST"
             action="{{ route('users.destroy', [$post->id]) }}">
             @csrf
             @method('DELETE')
-            <button type="Submit">Delete Post</button>
+            <button type="Submit" style="background-color: rgb(192, 88, 88); color: white">Delete Post</button>
         </form>
 
-        <a href="{{ route('users.edit', [$post->id]) }}" class="btn btn-primary">Edit</a></p>
+        <a href="{{ route('users.edit', [$post->id]) }}" class="btn btn-primary">Edit</a>
     @endif
+
+    <br>
+    <br>
+    
+    <p><a href="{{ route('users.index') }}" class="btn btn-primary">Back</a></p>
 
 @endsection
