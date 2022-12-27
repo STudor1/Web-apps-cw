@@ -73,9 +73,11 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post, Comment $comment)
     {
         //
+        return view('comments.edit', ['post' => $post, 'comment' => $comment]);
+
     }
 
     /**
@@ -85,9 +87,14 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post, Comment $comment)
     {
         //
+        $comment->content = $request->input('content');
+        $comment->update();
+
+        session()->flash('message', 'The comment was updated successfully.');
+        return redirect()->route('users.show', ['post' => $post]);
     }
 
     /**

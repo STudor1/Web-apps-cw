@@ -38,6 +38,13 @@ Route::get('/home/edit/{post}', [UserController::class, 'edit'])
 Route::put('/home/update/{post}', [UserController::class, 'update'])
     ->name('users.update');
 
+Route::get('/home/edit/{post}/{comment}', [CommentController::class, 'edit'])
+    ->name('comments.edit');
+
+Route::put('/home/update/{post}/{comment}', [CommentController::class, 'update'])
+    ->name('comments.update');
+
+
 Route::post('/home', [UserController::class, 'store'])
     ->name('users.store');
 

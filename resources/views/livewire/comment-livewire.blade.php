@@ -24,7 +24,9 @@
                                         @method('DELETE')
                                         <button type="Submit">Delete Comment</button>
                                     </form>
-                                    Edit 
+
+                                    <a href="{{ route('comments.edit', [$post->id, $comment->id]) }}" class="btn btn-primary">Edit</a></p>
+                                
                                 @endif
                             </ul>
                         @endif
