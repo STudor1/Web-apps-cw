@@ -18,7 +18,13 @@
                         @if ($comment->post_id == $post->id)
                             <ul><a href="{{ route('profiles.show', [$comment->author_id]) }}"> {{ $comment->author }} </a>  - {{ $comment->content }}
                                 @if($comment->author_id == $id_user or $user_role == 'admin')
-                                    Delete Edit 
+                                    <form method="POST"
+                                        action="{{ route('comments.destroy', [$post->id, $comment->id]) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="Submit">Delete Comment</button>
+                                    </form>
+                                    Edit 
                                 @endif
                             </ul>
                         @endif

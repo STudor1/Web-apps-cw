@@ -96,8 +96,11 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post, Comment $comment)
     {
         //
+        $comment->delete();
+
+        return redirect()->route('users.show', ['post' => $post])->with('message', 'Comment was deleted.');
     }
 }

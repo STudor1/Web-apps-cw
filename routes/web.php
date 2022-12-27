@@ -50,11 +50,18 @@ Route::get('/home/{post}', [UserController::class, 'show'])
 #Route::post('/home/{post}', [CommentController::class, 'store'])
 #    ->name('comments.store');
 
+Route::get('/profile/{user}', [ProfileController::class, 'show'])
+    ->name('profiles.show');
+
+    
+Route::delete('/home/{post}/{comment}', [CommentController::class, 'destroy'])
+    ->name('comments.destroy');
+
 Route::delete('/home/{post}', [UserController::class, 'destroy'])
     ->name('users.destroy');
 
-Route::get('/profile/{user}', [ProfileController::class, 'show'])
-    ->name('profiles.show');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
