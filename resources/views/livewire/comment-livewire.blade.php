@@ -11,7 +11,9 @@
 
             @csrf
             Post Something: <input wire:model.lazy="content" type="text">
-            
+
+            <button>Post Comment</button>
+
             <div>
                 <ul>
                     @foreach ($comments as $comment)
@@ -33,9 +35,6 @@
                     @endforeach
                 </ul> 
             </div>
-            
-         
-            <button>Post Comment</button>
         </form>
     </div>
 </div>
