@@ -38,6 +38,9 @@
 
     <a href="{{ route('users.create') }}" class="btn btn-primary">Create Post </a>
 
+    <br>
+    <br>
+
     {{$posts->onEachSide(1)->links()}}
 
 @endsection
