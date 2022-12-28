@@ -23,6 +23,9 @@
     <br>
     <br>
 
-    {{$posts->onEachSide(1)->links()}}
+    <ul class="pagination justify-content-center">
+        {{$posts->onEachSide(1)->links()}}
+    </ul
+    
 
 @endsection
