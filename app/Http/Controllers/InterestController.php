@@ -76,9 +76,13 @@ class InterestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Interest $interest)
     {
         //
+        $user_id = Auth::user()->id;
+        $interest->users()->attach($user_id);
+        $interest->update();
+        return redirect()->route('interests.index');
     }
 
     /**

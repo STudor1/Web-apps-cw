@@ -17,11 +17,18 @@
     @endforeach
 
     <br>
+
     {{--if not joined show button--}}
     @if ($interested == false)  
-        {{--when i press this i take the user id and add it to pivot table along with the interest id--}}
-        <p><a href="#" class="btn btn-dark">Join</a></p>
+        <form method="POST" action="{{ route('interests.update', [$interest->id]) }}" >
+            @csrf
+            @method('PUT')
+            <input type="submit" value="Join">
+        </form>
     @endif
+    
+    <br>
+
     <p><a href="{{ route('interests.index') }}" class="btn btn-primary">Back</a></p>
 
 @endsection

@@ -60,6 +60,9 @@ Route::get('/home/{post}', [UserController::class, 'show'])
 Route::get('/interests/{interest}', [InterestController::class, 'show'])
     ->name('interests.show');
 
+Route::put('/interests/{interest}', [InterestController::class, 'update'])
+    ->name('interests.update');
+
 #Route::post('/home/{post}', [CommentController::class, 'store'])
 #    ->name('comments.store');
 
