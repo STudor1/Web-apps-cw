@@ -21,6 +21,10 @@ class InterestTableSeeder extends Seeder
         $i->save();
         $i->users()->attach(1);
         $i->users()->attach(3);
+        $in = new Interest;
+        $in->interest = "Gaming";
+        $in->save();
+        $in->users()->attach(3);
 
     }
 }
