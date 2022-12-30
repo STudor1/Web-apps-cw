@@ -52,11 +52,10 @@ class InterestController extends Controller
     {
         //
         //$comments = Comment::get(); 
-        $users = User::get();
         //$id_user = Auth::user()->id;
         //$user_role = Auth::user()->role;
         //return view('interests.show', ['post' => $post, 'comments' => $comments, 'id_user' => $id_user, 'user_role' => $user_role]);
-        return view('interests.show', ['interest' => $interest, 'users' => $users]);
+        return view('interests.show', ['interest' => $interest]);
     }
 
     /**
