@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\InterestController;
 
 
 
@@ -25,6 +26,9 @@ Route::get('/', function () {
 
 Route::get('/home', [UserController::class, 'index'])
     ->name('users.index');
+
+Route::get('/interests', [InterestController::class, 'index'])
+    ->name('interests.index');
 
 Route::get('/home/create', [UserController::class, 'create'])
     ->name('users.create');
