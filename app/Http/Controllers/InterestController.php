@@ -81,8 +81,7 @@ class InterestController extends Controller
         //
         $user_id = Auth::user()->id;
         $interest->users()->attach($user_id);
-        $interest->update();
-        return redirect()->route('interests.index');
+        return redirect()->route('interests.show', ['interest' => $interest]);
     }
 
     /**
