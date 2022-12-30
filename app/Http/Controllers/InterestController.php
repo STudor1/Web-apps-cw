@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Interest;
+use App\Models\User;
 
 class InterestController extends Controller
 {
@@ -47,9 +48,15 @@ class InterestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Interest $interest)
     {
         //
+        //$comments = Comment::get(); 
+        $users = User::get();
+        //$id_user = Auth::user()->id;
+        //$user_role = Auth::user()->role;
+        //return view('interests.show', ['post' => $post, 'comments' => $comments, 'id_user' => $id_user, 'user_role' => $user_role]);
+        return view('interests.show', ['interest' => $interest, 'users' => $users]);
     }
 
     /**

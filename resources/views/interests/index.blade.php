@@ -10,7 +10,7 @@
         <ul class="list-group list-group-flush">
             @foreach ($interests as $interest)
                 <div class="card">
-                    <li class="list-group-item">{{ $interest->interest }}</li>
+                    <li class="list-group-item"><a href="{{ route('interests.show', [$interest->id]) }}">{{ $interest->interest }}</a></li>
                 </div>
             @endforeach
         

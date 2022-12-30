@@ -57,6 +57,8 @@ Route::post('/home', [UserController::class, 'store'])
 Route::get('/home/{post}', [UserController::class, 'show'])
     ->name('users.show');
 
+Route::get('/interests/{interest}', [InterestController::class, 'show'])
+    ->name('interests.show');
 
 #Route::post('/home/{post}', [CommentController::class, 'store'])
 #    ->name('comments.store');
