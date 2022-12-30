@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Interest;
 
 class InterestController extends Controller
 {
@@ -14,7 +16,8 @@ class InterestController extends Controller
     public function index()
     {
         //
-        return "Hello";
+        $interests = Interest::paginate(20);
+        return view('interests.index', ['interests' => $interests]);
     }
 
     /**
