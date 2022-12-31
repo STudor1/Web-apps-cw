@@ -65,8 +65,9 @@ class InterestController extends Controller
         //
         //$comments = Comment::get(); 
         $id_user = Auth::user()->id;
+        $user_role = Auth::user()->role;
         //return view('interests.show', ['post' => $post, 'comments' => $comments, 'id_user' => $id_user, 'user_role' => $user_role]);
-        return view('interests.show', ['interest' => $interest, 'id_user' => $id_user]);
+        return view('interests.show', ['interest' => $interest, 'id_user' => $id_user, 'user_role' => $user_role]);
     }
 
     /**
@@ -101,8 +102,11 @@ class InterestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Interest $interest)
     {
         //
+        $interest->delete();
+
+        return redirect()->route('interests.index')->with('message', 'Interest was deleted.');
     }
 }

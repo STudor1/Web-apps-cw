@@ -83,6 +83,9 @@ Route::delete('/home/{post}/{comment}', [CommentController::class, 'destroy'])
 Route::delete('/home/{post}', [UserController::class, 'destroy'])
     ->name('users.destroy');
 
+Route::delete('/interests/{interest}', [InterestController::class, 'destroy'])
+    ->name('interests.destroy');
+
 
 
 

@@ -31,6 +31,15 @@
     
     <br>
 
+    @if ($user_role == 'admin')
+        <form method="POST"
+            action="{{ route('interests.destroy', [$interest->id]) }}">
+            @csrf
+            @method('DELETE')
+            <button type="Submit" style="background-color: rgb(192, 88, 88); color: white">Delete Interest</button>
+        </form>
+    @endif
+
     <p><a href="{{ route('interests.index') }}" class="btn btn-primary">Back</a></p>
 
 @endsection
