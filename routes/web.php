@@ -33,6 +33,9 @@ Route::get('/interests', [InterestController::class, 'index'])
 Route::get('/home/create', [UserController::class, 'create'])
     ->name('users.create');
 
+Route::get('/interests/create', [InterestController::class, 'create'])
+    ->name('interests.create');
+
 Route::get('/comment/create/{post}', [CommentController::class, 'create'])
     ->name('comments.create');
 
@@ -63,6 +66,10 @@ Route::get('/interests/{interest}', [InterestController::class, 'show'])
 Route::put('/interests/{interest}', [InterestController::class, 'update'])
     ->name('interests.update');
 
+
+
+Route::post('/interests', [InterestController::class, 'store'])
+    ->name('interests.store');
 #Route::post('/home/{post}', [CommentController::class, 'store'])
 #    ->name('comments.store');
 

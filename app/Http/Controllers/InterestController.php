@@ -17,8 +17,9 @@ class InterestController extends Controller
     public function index()
     {
         //
+        $user_role = Auth::user()->role;
         $interests = Interest::paginate(20);
-        return view('interests.index', ['interests' => $interests]);
+        return view('interests.index', ['interests' => $interests, 'user_role' => $user_role]);
     }
 
     /**
@@ -29,6 +30,7 @@ class InterestController extends Controller
     public function create()
     {
         //
+        return view('interests.create');
     }
 
     /**
@@ -40,6 +42,16 @@ class InterestController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'interest' => 'required|max:50',
+        ]);
+
+        $i = new Interest;
+        $i->interest = $validatedData['interest'];
+        $i->save();
+
+        session()->flash('message', 'The interest was created.');
+        return redirect()->route('interests.index');
     }
 
     /**
@@ -53,7 +65,6 @@ class InterestController extends Controller
         //
         //$comments = Comment::get(); 
         $id_user = Auth::user()->id;
-        //$user_role = Auth::user()->role;
         //return view('interests.show', ['post' => $post, 'comments' => $comments, 'id_user' => $id_user, 'user_role' => $user_role]);
         return view('interests.show', ['interest' => $interest, 'id_user' => $id_user]);
     }

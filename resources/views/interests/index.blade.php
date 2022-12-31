@@ -18,7 +18,10 @@
     </div>
     
     {{--<a href="{{ route('users.create') }}" class="btn btn-primary">Create Post </a>--}}
-    
+    @if($user_role == 'admin')
+        <br>
+        <a href="{{ route('interests.create') }}" class="btn btn-primary">Add an interest </a>
+    @endif
 
     <br>
     <br>
