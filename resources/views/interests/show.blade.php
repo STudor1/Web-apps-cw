@@ -4,7 +4,7 @@
 
 @section('content')
     {{--this prints 1 cause it is true no idea how to fix it--}}
-    {{$interested = true}}
+    {{$interested = false}}
     Users interested in {{$interest->interest}}:
     @foreach ($interest->users as $user)
         {{--<li> {{$user->pivot->user_id}}</li>--}}
