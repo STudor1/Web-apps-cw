@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Post;
 use App\Models\Comment;
 use App\Models\Description;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class ProfileController extends Controller
@@ -56,7 +56,8 @@ class ProfileController extends Controller
         $posts = Post::get(); 
         $comments = Comment::get();
         $descriptions = Description::get();
-        return view('profiles.show', ['user' => $user, 'posts' => $posts, 'comments' => $comments, 'descriptions' => $descriptions]);
+        $id_user = Auth::user()->id;
+        return view('profiles.show', ['user' => $user, 'posts' => $posts, 'comments' => $comments, 'descriptions' => $descriptions, 'id_user' => $id_user]);
         //return "Not yet";
     }
 

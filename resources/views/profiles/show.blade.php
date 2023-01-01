@@ -3,6 +3,9 @@
 @section('title', $user->name)
 
 @section('content')
+    @if ($user->id == $id_user)
+        <a href="#" class="btn btn-primary">Edit Description</a>
+    @endif
     <p>Description:</p>
     <p>
         @foreach ($descriptions as $description)
