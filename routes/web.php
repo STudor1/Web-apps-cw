@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\InterestController;
+use App\Http\Controllers\DescriptionController;
 
 
 
@@ -35,6 +36,9 @@ Route::get('/home/create', [UserController::class, 'create'])
 
 Route::get('/interests/create', [InterestController::class, 'create'])
     ->name('interests.create');
+
+Route::get('/description/create', [DescriptionController::class, 'create'])
+    ->name('descriptions.create');
 
 Route::get('/comment/create/{post}', [CommentController::class, 'create'])
     ->name('comments.create');
@@ -70,6 +74,9 @@ Route::put('/interests/{interest}', [InterestController::class, 'update'])
 
 Route::post('/interests', [InterestController::class, 'store'])
     ->name('interests.store');
+
+Route::post('/description', [DescriptionController::class, 'store'])
+    ->name('descriptions.store');
 #Route::post('/home/{post}', [CommentController::class, 'store'])
 #    ->name('comments.store');
 

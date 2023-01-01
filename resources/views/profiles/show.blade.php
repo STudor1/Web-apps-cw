@@ -13,7 +13,7 @@
             @endif
         @else
             @if ($user->id == $id_user)
-                <a href="#" class="btn btn-primary">Add Description</a>
+                <a href="{{ route('descriptions.create') }}" class="btn btn-primary">Add Description</a>
             @endif
         @endif
     </p>
