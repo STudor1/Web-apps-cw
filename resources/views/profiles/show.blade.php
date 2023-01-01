@@ -3,16 +3,19 @@
 @section('title', $user->name)
 
 @section('content')
-    @if ($user->id == $id_user)
-        <a href="#" class="btn btn-primary">Edit Description</a>
-    @endif
+    
     <p>Description:</p>
     <p>
-        @foreach ($descriptions as $description)
-            @if ($user->id == $description->user_id)
-                {{ $description->description }}
+        @if ($description != null)
+            {{$description->description}}
+            @if ($description->user_id == $id_user)
+                <a href="#" class="btn btn-primary">Edit Description</a>
             @endif
-        @endforeach
+        @else
+            @if ($user->id == $id_user)
+                <a href="#" class="btn btn-primary">Add Description</a>
+            @endif
+        @endif
     </p>
 
     <p>Posts:</p>

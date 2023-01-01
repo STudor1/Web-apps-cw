@@ -53,11 +53,19 @@ class ProfileController extends Controller
     {
         //
         //dd($id);
+        $desc = null;
         $posts = Post::get(); 
         $comments = Comment::get();
         $descriptions = Description::get();
+        foreach ($descriptions as $description){
+            if ($user->id == $description->user_id){
+                $desc = $description; 
+            }
+        }
+            
+            
         $id_user = Auth::user()->id;
-        return view('profiles.show', ['user' => $user, 'posts' => $posts, 'comments' => $comments, 'descriptions' => $descriptions, 'id_user' => $id_user]);
+        return view('profiles.show', ['user' => $user, 'posts' => $posts, 'comments' => $comments, 'description' => $desc, 'id_user' => $id_user]);
         //return "Not yet";
     }
 
