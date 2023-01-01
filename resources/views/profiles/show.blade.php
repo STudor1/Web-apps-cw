@@ -9,7 +9,7 @@
         @if ($description != null)
             {{$description->description}}
             @if ($description->user_id == $id_user)
-                <a href="#" class="btn btn-primary">Edit Description</a>
+                <a href="{{ route('descriptions.edit', [$description->id]) }}" class="btn btn-primary">Edit Description</a>
             @endif
         @else
             @if ($user->id == $id_user)

@@ -75,6 +75,13 @@ Route::put('/interests/{interest}', [InterestController::class, 'update'])
 Route::post('/interests', [InterestController::class, 'store'])
     ->name('interests.store');
 
+
+Route::get('/description/edit/{description}', [DescriptionController::class, 'edit'])
+    ->name('descriptions.edit');
+
+Route::put('/description/update/{description}', [DescriptionController::class, 'update'])
+    ->name('descriptions.update');
+
 Route::post('/description', [DescriptionController::class, 'store'])
     ->name('descriptions.store');
 #Route::post('/home/{post}', [CommentController::class, 'store'])

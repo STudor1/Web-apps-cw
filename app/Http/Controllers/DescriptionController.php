@@ -68,9 +68,10 @@ class DescriptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Description $description)
     {
         //
+        return view('descriptions.edit', ['description' => $description]);
     }
 
     /**
@@ -80,9 +81,14 @@ class DescriptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Description $description)
     {
         //
+        $description->description = $request->input('description');
+        $description->update();
+
+        session()->flash('message', 'The description was updated successfully.');
+        return redirect()->route('users.index');
     }
 
     /**
