@@ -48,7 +48,7 @@ class DescriptionController extends Controller
         $d->save();   
 
         session()->flash('message', 'Description was created.');
-        return redirect()->route('users.index');
+        return redirect()->route('profiles.show', [Auth::user()->id]);
     }
 
     /**
@@ -88,7 +88,7 @@ class DescriptionController extends Controller
         $description->update();
 
         session()->flash('message', 'The description was updated successfully.');
-        return redirect()->route('users.index');
+        return redirect()->route('profiles.show', [$description->user->id]);
     }
 
     /**
