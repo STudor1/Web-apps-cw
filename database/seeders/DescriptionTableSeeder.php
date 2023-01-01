@@ -21,5 +21,8 @@ class DescriptionTableSeeder extends Seeder
         $d-> user_id = 1;
         $d-> description = "It's a me, Mario";
         $d->save();
+
+        Description::factory()->count(2)->create();
+        
     }
 }
