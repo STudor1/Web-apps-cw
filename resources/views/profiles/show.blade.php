@@ -3,6 +3,15 @@
 @section('title', $user->name)
 
 @section('content')
+    <p>Description:</p>
+    <p>
+        @foreach ($descriptions as $description)
+            @if ($user->id == $description->user_id)
+                {{ $description->description }}
+            @endif
+        @endforeach
+    </p>
+
     <p>Posts:</p>
     <ul>
         @foreach ($posts as $post)

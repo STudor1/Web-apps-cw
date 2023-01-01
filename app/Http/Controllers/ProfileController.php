@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\Description;
 
 
 
@@ -54,7 +55,8 @@ class ProfileController extends Controller
         //dd($id);
         $posts = Post::get(); 
         $comments = Comment::get();
-        return view('profiles.show', ['user' => $user, 'posts' => $posts, 'comments' => $comments]);
+        $descriptions = Description::get();
+        return view('profiles.show', ['user' => $user, 'posts' => $posts, 'comments' => $comments, 'descriptions' => $descriptions]);
         //return "Not yet";
     }
 
