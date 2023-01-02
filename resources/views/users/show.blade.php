@@ -7,7 +7,12 @@
     @foreach ($post->notes as $note)
         {{$note->body}}
     @endforeach
-    <a href="{{ route('notes.create', [$post->id]) }}" class="btn btn-primary">Add Note</a>
+    @if ($user_role == 'admin')
+        <a href="{{ route('notes.create', [$post->id]) }}" class="btn btn-primary">Add Note</a>
+    @endif
+
+    <br>
+    <br>
 
     <p> Title: {{$post->title}} </p>
 

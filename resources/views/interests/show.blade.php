@@ -7,9 +7,12 @@
     @foreach ($interest->notes as $note)
         {{$note->body}}
     @endforeach
-    <a href="{{ route('noteInterests.create', [$interest->id]) }}" class="btn btn-primary">Add Note</a>
+    @if ($user_role == 'admin')
+        <a href="{{ route('noteInterests.create', [$interest->id]) }}" class="btn btn-primary">Add Note</a>
+    @endif
     {{--this prints 1 cause it is true no idea how to fix it--}}
     {{$interested = false}}
+    <br>
     <br>
     Users interested in {{$interest->interest}}:
     @foreach ($interest->users as $user)
