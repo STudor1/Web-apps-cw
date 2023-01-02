@@ -3,10 +3,10 @@
 @section('title', $post->title)
 
 @section('content')
+    Notes: 
     @foreach ($post->notes as $note)
         {{$note->body}}
     @endforeach
-    {{$post->notes}}
     <a href="{{ route('notes.create', [$post->id]) }}" class="btn btn-primary">Add Note</a>
 
     <p> Title: {{$post->title}} </p>

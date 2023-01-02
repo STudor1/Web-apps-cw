@@ -3,8 +3,14 @@
 @section('title', $interest->interest)
 
 @section('content')
+    Notes: 
+    @foreach ($interest->notes as $note)
+        {{$note->body}}
+    @endforeach
+    <a href="{{ route('noteInterests.create', [$interest->id]) }}" class="btn btn-primary">Add Note</a>
     {{--this prints 1 cause it is true no idea how to fix it--}}
     {{$interested = false}}
+    <br>
     Users interested in {{$interest->interest}}:
     @foreach ($interest->users as $user)
         {{--<li> {{$user->pivot->user_id}}</li>--}}
