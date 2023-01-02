@@ -3,6 +3,12 @@
 @section('title', $post->title)
 
 @section('content')
+    @foreach ($post->notes as $note)
+        {{$note->body}}
+    @endforeach
+    {{$post->notes}}
+    <a href="#" class="btn btn-primary">Add Note</a>
+
     <p> Title: {{$post->title}} </p>
 
     <ul>

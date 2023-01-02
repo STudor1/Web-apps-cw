@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
             $table->string("body");
-            $table->integer('commentable_id');
-            $table->string("commentable_type");
+            $table->integer('notable_id');
+            $table->string("notable_type");
             $table->timestamps();
         });
     }
