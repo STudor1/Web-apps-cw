@@ -22,4 +22,8 @@ class Post extends Model
     public function likes(){
         return $this->morphMany(Like::class, 'likable');
     }
+
+    public function notes(){
+        return $this->morphMany(Note::class, 'notable');
+    }
 }
