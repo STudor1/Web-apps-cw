@@ -6,7 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\InterestController;
 use App\Http\Controllers\DescriptionController;
-
+use App\Http\Controllers\NoteController;
 
 
 /*
@@ -42,6 +42,9 @@ Route::get('/description/create', [DescriptionController::class, 'create'])
 
 Route::get('/comment/create/{post}', [CommentController::class, 'create'])
     ->name('comments.create');
+
+Route::get('/note/create/{post}', [NoteController::class, 'create'])
+    ->name('notes.create');
 
 Route::get('/home/edit/{post}', [UserController::class, 'edit'])
     ->name('users.edit');
@@ -86,6 +89,8 @@ Route::post('/description', [DescriptionController::class, 'store'])
     ->name('descriptions.store');
 #Route::post('/home/{post}', [CommentController::class, 'store'])
 #    ->name('comments.store');
+Route::post('/home/{post}', [NoteController::class, 'store'])
+    ->name('notes.store');
 
 Route::get('/profile/{user}', [ProfileController::class, 'show'])
     ->name('profiles.show');

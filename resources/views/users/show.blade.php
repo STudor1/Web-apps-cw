@@ -7,7 +7,7 @@
         {{$note->body}}
     @endforeach
     {{$post->notes}}
-    <a href="#" class="btn btn-primary">Add Note</a>
+    <a href="{{ route('notes.create', [$post->id]) }}" class="btn btn-primary">Add Note</a>
 
     <p> Title: {{$post->title}} </p>
 
