@@ -93,6 +93,13 @@ class CommentController extends Controller
         $comment->content = $request->input('content');
         $comment->update();
 
+        //If an admin edits your comment then you get notified
+        //Also, if another admin edits the comment of another admin they get notifed but not if you as an admin edit your own comment
+        if(Auth::user()->role == 'admin' and Auth::user()->id != $comment->author_id){
+            $user = User::find($comment->author_id);
+            $user->notify(new \App\Notifications\CommentEdited($post->id));
+        }
+
         session()->flash('message', 'The comment was updated successfully.');
         return redirect()->route('users.show', ['post' => $post]);
     }
