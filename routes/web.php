@@ -115,6 +115,8 @@ Route::delete('/interests/{interest}', [InterestController::class, 'destroy'])
     ->name('interests.destroy');
 
 
+Route::get('/search', [UserController::class, 'search'])
+    ->name('users.search');
 
 
 Route::get('/dashboard', function () {

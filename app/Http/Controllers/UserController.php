@@ -154,4 +154,13 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('message', 'Post was deleted.');
     }
+
+    public function search()
+    {
+        $search_text = $_GET['search'];
+        //$posts = Post::where('title', 'LIKE', '%'.$search_text.'%')->paginate(5);
+        $posts = Post::where('title', 'LIKE', '%'.$search_text.'%')->get();
+
+        return view('users.search', ['posts' => $posts]);
+    }
 }
