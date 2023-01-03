@@ -26,7 +26,7 @@ class CommentLivewire extends Component
             $c->post_id = $post->id;
             $c->save();
 
-            $post->user->notify(new \App\Notifications\NewComment());
+            $post->user->notify(new \App\Notifications\NewComment($post->id));
 
             session()->flash('message', 'Comment posted.');
         }

@@ -6,19 +6,22 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use App\Models\Post;
 
 class NewComment extends Notification
 {
     use Queueable;
 
+    protected $post;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(int $post)
     {
         //
+        $this->post = $post;
     }
 
     /**
@@ -29,6 +32,7 @@ class NewComment extends Notification
      */
     public function via($notifiable)
     {
+        //dd($this->post);
         return ['mail'];
     }
 
@@ -41,8 +45,8 @@ class NewComment extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
+                    ->line('A new comment has been added to your post.')
+                    ->action('Check the post', route('users.show', [$this->post]))
                     ->line('Thank you for using our application!');
     }
 
