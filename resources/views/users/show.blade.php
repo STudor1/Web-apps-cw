@@ -16,9 +16,12 @@
 
     <p> Title: {{$post->title}} </p>
 
-    <ul>
-        <img src="{{asset('storage/'.$post->image_name)}}">
-    </ul>
+    @if ($post->image_name != null)
+        <ul>
+            <img src="{{asset('storage/'.$post->image_name)}}">
+        </ul>
+    @endif
+    
     <ul>
         <li> Author: 
             @if ($post->user->name)
