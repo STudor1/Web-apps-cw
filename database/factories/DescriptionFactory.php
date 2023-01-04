@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Description>
@@ -18,9 +19,8 @@ class DescriptionFactory extends Factory
     {
         return [
             //
-            //This sets the pfp to a random user in our database (we only have 4 so far)
-            //we'll have to check for max in future
-            'user_id' => fake()->unique()->numberBetween(2, 4),
+            //This sets the description to a random user in our database
+            'user_id' => fake()->unique()->numberBetween(2, User::count()),
             'description' => fake()->text($maxNbChars = 400) ,
         ];
     }
