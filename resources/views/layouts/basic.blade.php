@@ -21,7 +21,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li> &nbsp;&nbsp; User: {{ Auth::user()->name }}</li>
                         <li> &nbsp;&nbsp; {{ Auth::user()->email }}</li>
-                        <li> &nbsp;&nbsp; TESTING ID: {{ Auth::user()->id }}</li>
+                        <li> &nbsp;&nbsp; Role: {{ Auth::user()->role }}</li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
